@@ -1,0 +1,15 @@
+.search-bar input {
+    border: round;
+    border-radius:25px;
+    box-shadow: 0px 0px 5px 0px rgba(42,42,42,.43);
+    padding: 5px;
+    text-align: left;
+    width: 50%;
+    max-width: 600px;
+}
+
+/* @media only screen and (max-width: 800px) {
+    .search-bar input {
+        width: 75%;
+    }
+  } */

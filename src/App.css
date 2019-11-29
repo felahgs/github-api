@@ -1,14 +1,25 @@
 .App {
   text-align: center;
+  position: relative;
+  display: block;
+  height: 100vh;
 }
 
 .App-logo {
-  height: 40vmin;
+  max-height: 9vh;
+  max-width: 100%;
+  position: center;
+  flex: 0 0 65%;
+}
+
+.App-text {
+  flex: 1;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #669b29;
+  height: 10vh;
+  max-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,6 +28,21 @@
   color: white;
 }
 
+.search-wrapper {
+  /* background-color: blue; */
+  padding: 5vh;
+}
+
+.content-wrapper {
+  /* background-color: mediumseagreen; */
+  height: 100%;
+}
+
 .App-link {
   color: #09d3ac;
+}
+
+body {
+  /* border: 2px dashed; */
+  /* margin: 5% 5% */
 }
