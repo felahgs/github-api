@@ -3,6 +3,8 @@ import logo from './rick.png';
 import './App.css';
 import SearchBar from './components/SearchBar/SearchBar';
 import Users from './containers/SearchUsers';
+import Dropdown from './components/Dropdown/Dropdown';
+import Autocomplete from './components/Autocomplete/Autocomplete'
 
 
 function App() {
@@ -16,10 +18,28 @@ function App() {
         
       </header>
       <div className="search-wrapper">
-        <SearchBar placeholder="username"/>
+        {/* <SearchBar placeholder="username"/> */}
+        <Autocomplete
+          placeholder="username"
+          suggestions={[
+            "Alligator",
+            "Bask",
+            "Crocodilian",
+            "Death Roll",
+            "Eggs",
+            "Jaws",
+            "Reptile",
+            "Solitary",
+            "Tail",
+            "Wetlands"
+          ]}
+        />
       </div>
       <div className="content-wrapper">
-        <Users/>
+          {/* <Dropdown/> */}
+          <div className="users-cards">
+            {/* <Users/> */}
+          </div>
       </div>
 
     </div>

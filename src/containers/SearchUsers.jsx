@@ -44,7 +44,7 @@ class SearchUsers extends Component {
         // console.log('user profile', this.state.usersProfile);
         content = this.state.users.map(user => {
             return (
-                <Post 
+                <li 
                     key={user.id}
                     username={user.login}
                     img={user.avatar_url}
