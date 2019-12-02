@@ -36,6 +36,7 @@
 .content-wrapper {
   /* background-color: mediumseagreen; */
   height: 100%;
+  padding: 2% 15%;
 }
 
 .App-link {
