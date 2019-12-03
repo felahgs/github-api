@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Post from '../components/Post/Post';
 import axios from 'axios';
 
 class SearchUsers extends Component {
@@ -7,11 +6,10 @@ class SearchUsers extends Component {
         num: 4,
         users:[],
         usersProfile:[],
-        userData:[]
     }
     
    componentDidMount () {
-        axios.get('https://api.github.com/search/users?q=felah')
+        axios.get('https://api.github.com/search/users?q=' + this.props.input)
             .then(response => {
                 const users = response.data.items;
                 const updatedUsers = users.map(users => {
@@ -21,20 +19,6 @@ class SearchUsers extends Component {
                 })
                 this.setState({users: updatedUsers});
                 console.log('response:', this.state.users);
-
-                let userData;
-                // this.state.users.map((user, index) => {
-                //     axios.get(user.url)
-                //         .then( user_response => {
-                //             userData = user_response.data;
-                //             this.setState(prevState => ({
-                //                 usersProfile: [...prevState.usersProfile, userData]
-                //             }))
-                //             console.log("userdata", this.state.usersProfile);
-                //             console.log("user", user);
-                //         })
-                //     return 1
-                // })
             })
 
     };
@@ -42,13 +26,21 @@ class SearchUsers extends Component {
     render () {
         let content = <div style={{textAlign: 'center'}}>Loading</div>;
         // console.log('user profile', this.state.usersProfile);
+        console.log("props", this.props.input)
         content = this.state.users.map(user => {
             return (
-                <li 
+                <div className="user-card"
                     key={user.id}
                     username={user.login}
                     img={user.avatar_url}
-                />
+                >
+                    <div className="user-avatar">
+                        <img src={user.avatar_url} alt="user avatar"/>
+                    </div>
+                    <div className="user-name">
+                        <b>{user.login}</b>
+                    </div>
+                </div>
             )
         })
         return content;
