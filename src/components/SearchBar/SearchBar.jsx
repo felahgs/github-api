@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
+import Dropdown from '../Dropdown/Dropdown';
 import './SearchBar.css';
 
 
@@ -6,30 +7,21 @@ import './SearchBar.css';
 const SearchBar = (props) => {
 
     const [input, setInput] = useState('');
+    // const [dropdownComponent, updateDropdown] = useState(<Dropdown input={input}/>)
 
-    useEffect(() => {console.log("input state is", input)}, [input])
 
     // onChange will be attribuited to the input element so the refered target will be that contained in the input
     const onChange = (e) => {
         setInput(e.currentTarget.value)
+        // console.log("=(")
     }
-
-    let sugestionList = (
-        <ul>
-            <li>item 1</li>
-            <li>item 2</li>
-        </ul>
-    )
-
-    
 
     return(
         <div className="search-bar">
             <input type="text" placeholder={props.placeholder} onChange={onChange}/>
-            {sugestionList}
-        </div>
-        
-    )
+            <Dropdown input={input}/>
+        </div>     
+    );
 }
 
 export default SearchBar;

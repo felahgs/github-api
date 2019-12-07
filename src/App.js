@@ -17,7 +17,7 @@ function App() {
         <div className="search-wrapper">
           <SearchBar placeholder="username"/>
         </div>
-        <div className="user-wrapper">
+        <div className="user-profile-wrapper">
         </div>
       </div>
 
