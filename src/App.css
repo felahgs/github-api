@@ -34,9 +34,9 @@
 }
 
 .content-wrapper {
-  /* background-color: mediumseagreen; */
+  background-color: #e8f3db;
   height: 100%;
-  padding: 2% 15%;
+  margin: 2% 15%;
 }
 
 .App-link {

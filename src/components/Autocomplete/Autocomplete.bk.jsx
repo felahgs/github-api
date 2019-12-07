@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-// import Users from '../../containers/SearchUsers';
-import axios from 'axios';
-
-// https://medium.com/shriram-navaratnalingam/authentication-using-github-oauth-2-0-with-nodejs-be1091ce10a7
-
+import Users from '../../containers/SearchUsers';
 
 class Autocomplete extends Component {
   static propTypes = {
@@ -26,9 +22,7 @@ class Autocomplete extends Component {
       // Whether or not the suggestion list is shown
       showSuggestions: false,
       // What the user has entered
-      userInput: "",
-
-      users: []
+      userInput: ""
     };
   }
 
@@ -51,24 +45,11 @@ class Autocomplete extends Component {
       showSuggestions: true,
       userInput: e.currentTarget.value
     });
-
-    axios.get('https://api.github.com/search/users?q=' + this.state.userInput)
-    .then(response => {
-        const users = response.data.items;
-        const updatedUsers = users.map(users => {
-            return {
-                ...users,
-            }
-        })
-        this.setState({users: updatedUsers});
-        console.log('response:', this.state.users);
-    })
   };
 
   // Event fired when the user clicks on a suggestion
   onClick = e => {
     // Update the user input and reset the rest of the state
-    console.log(e.currentTarget)
     this.setState({
       activeSuggestion: 0,
       filteredSuggestions: [],
@@ -124,38 +105,32 @@ class Autocomplete extends Component {
     let suggestionsListComponent;
 
     if (showSuggestions && userInput) {
-      if (this.state.users.length) {
-        console.log("users", this.state.users.map)
+      if (filteredSuggestions.length) {
         suggestionsListComponent = (
           <ul class="suggestions">
-            {this.state.users.map((suggestion, index) => {
+            {filteredSuggestions.map((suggestion, index) => {
               let className;
 
               // Flag the active suggestion with a class
-              // if (index === activeSuggestion) {
-              //   className = "suggestion-active";
-              // }
+              if (index === activeSuggestion) {
+                className = "suggestion-active";
+              }
 
               return (
-                <div
-                  className="user-card"
-                  key={suggestion.id}
+                <li
+                  className={className}
+                  key={suggestion}
                   onClick={onClick}
                 >
-                  <div className="user-avatar">
-                    <img src={suggestion.avatar_url} alt="user avatar"/>
-                  </div>
-                  <div className="user-name">
-                    <b>{suggestion.login}</b>
-                  </div>
-                </div>
+                  {suggestion}
+                </li>
               );
             })}
           </ul>
         );
       } else {
         suggestionsListComponent = (
-          <div className="no-suggestions">
+          <div class="no-suggestions">
             <em>Users not found!</em>
           </div>
         );
