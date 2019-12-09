@@ -4,7 +4,7 @@ import Users from '../../containers/UserCardContainer';
 const Dropdown = (props) => {
 
 useEffect(() => {console.log("Dropdown rendered")}, [])
-useEffect(() => {console.log("Dropdown: imput props changed", props.input)}, [props.input])
+useEffect(() => {console.log("Dropdown: input props changed", props.input)}, [props.input])
 
 return (
   <div className="dropdown-component">

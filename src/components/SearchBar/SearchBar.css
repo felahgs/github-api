@@ -7,13 +7,6 @@
     min-width: 60%;
 }
 
-.user-card {
-    display: flex;
-    padding: 10px;
-    border-radius:25px;
-
-}
-
 .suggestions {
     border: 1px solid;
     border-radius:5px;

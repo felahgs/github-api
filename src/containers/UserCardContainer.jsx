@@ -1,16 +1,24 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import UserCard from '../components/UserCard/UserCard';
 import axios from 'axios';
 
-class SearchUsers extends Component {
-    state = {
-        users:[],
-        usersProfile:[],
-        usersLoaded: false
-    }
+const UserCardContainer = (props) => {
 
-     fetchUsers() {
-        axios.get('https://api.github.com/search/users?q=' + this.props.input)
+    const [users, setUsers] = useState([])
+    const [usersLoaded, setUsersLoaded] = useState(false)
+
+    useEffect(()=> {
+        fetchUsers();
+    })
+
+    const fetchUsers = () => {
+        axios.get('https://api.github.com/search/users?q=' + props.input, {
+            'auth': {
+              'user': 'felahgs',
+              'pass': 'Tje3qz%e',
+              'sendImmediately': false
+            }
+        })
         .then(response => {
             const users = response.data.items;
             const updatedUsers = users.map(users => {
@@ -18,28 +26,21 @@ class SearchUsers extends Component {
                     ...users,
                 }
             })
-            this.setState({users: updatedUsers, usersLoaded: true});
+            setUsersLoaded(true)
+            setUsers(updatedUsers)
         })
     }
+
+    let content;
+    if(usersLoaded) {
+        content = users.map(user => {
+            return (
+                <UserCard user={user} key={user.id}/>
+            )
+        })
+    }
+    else content = <div style = {{textAlign: 'center'}}> Loading... </div>
+    return content;
     
-   componentDidMount () {
-        this.fetchUsers();
-    };
-
-    componentDidUpdate() {
-        this.fetchUsers();
-    }
-
-    render () {
-        let content;
-        if(this.state.usersLoaded) 
-            content = this.state.users.map(user => {
-                return (
-                    <UserCard user={user} key={user.id}/>
-                )
-            })
-        else content = <div style={{textAlign: 'center'}}>Loading</div>
-        return content;
-    }
 }
-export default SearchUsers;
+export default UserCardContainer;

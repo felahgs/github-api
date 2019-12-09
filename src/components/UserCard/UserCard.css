@@ -1,0 +1,7 @@
+.user-card {
+    display: flex;
+    padding: 10px;
+    border: solid #cccccc 1px;
+    border-radius: 2%;
+    cursor: pointer;
+}
