@@ -5,11 +5,9 @@
     padding: 5px;
     text-align: left;
     min-width: 60%;
-    /* max-width: 600px; */
 }
 
 .user-card {
-    /* border: 1px solid; */
     display: flex;
     padding: 10px;
     border-radius:25px;
@@ -23,26 +21,14 @@
     text-align: center;
     position: relative;
     display: inline-block;
-    /* max-width: 800px; */
-    /* left: 2%; */
 }
 
 .user-name {
     padding-left: 20px
 }
 
-/* .user-card div{
-    display: flex;
-} */
-
 .user-card img {
     width: 6em;
     display: table-cell;
     vertical-align: middle;
 }
-
-/* @media only screen and (max-width: 800px) {
-    .search-bar input {
-        width: 75%;
-    }
-  } */

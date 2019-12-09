@@ -1,11 +1,6 @@
 import React from 'react';
-// import logo from './rick.png';
 import './App.css';
 import SearchBar from './components/SearchBar/SearchBar';
-// import Users from './containers/SearchUsers';
-// import Dropdown from './components/Dropdown/Dropdown';
-// import Autocomplete from './components/Autocomplete/Autocomplete'
-
 
 function App() {
   return (

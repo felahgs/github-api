@@ -9,11 +9,9 @@ const SearchBar = (props) => {
     const [input, setInput] = useState('');
     // const [dropdownComponent, updateDropdown] = useState(<Dropdown input={input}/>)
 
-
     // onChange will be attribuited to the input element so the refered target will be that contained in the input
     const onChange = (e) => {
         setInput(e.currentTarget.value)
-        // console.log("=(")
     }
 
     return(
