@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import Users from '../../containers/UserCardContainer';
+import './Dropdown.css';
 
 const Dropdown = (props) => {
 

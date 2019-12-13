@@ -1,0 +1,13 @@
+.dropdown-component {
+    background-color: #fff;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 8px;
+    /* width: 50%; */
+}
+
+@media (min-width: 1024px) {
+    .dropdown-component {
+      width: 50%;
+    }
+  }

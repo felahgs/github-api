@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import UserCard from '../components/UserCard/UserCard';
 // import axios from 'axios';
+import Loader from '../components/UI/Loader/Loader';
 import Octokit from '@octokit/rest';
 
 
@@ -41,7 +42,9 @@ const UserCardContainer = (props) => {
             )
         })
     }
-    else content = <div style = {{textAlign: 'center'}}> Loading... </div>
+    else content = <div style = {{textAlign: 'center'}}>
+            <Loader/>
+        </div>
     return content;
     
 }
