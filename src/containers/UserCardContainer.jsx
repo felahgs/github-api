@@ -1,24 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import UserCard from '../components/UserCard/UserCard';
-import axios from 'axios';
+// import axios from 'axios';
+import Octokit from '@octokit/rest';
+
 
 const UserCardContainer = (props) => {
 
     const [users, setUsers] = useState([])
     const [usersLoaded, setUsersLoaded] = useState(false)
+    const octokit = new Octokit({
+        auth: "token bbbd46db848e5bb46c1a4bda108b368fac3bcf62"
+      });
 
     useEffect(()=> {
         fetchUsers();
     })
 
     const fetchUsers = () => {
-        axios.get('https://api.github.com/search/users?q=' + props.input, {
-            'auth': {
-              'user': 'felahgs',
-              'pass': 'Tje3qz%e',
-              'sendImmediately': false
-            }
-        })
+
+        octokit.search.users({
+            q: props.input
+          })
         .then(response => {
             const users = response.data.items;
             const updatedUsers = users.map(users => {
