@@ -8,6 +8,10 @@
     user-select: none;
 }
 
+.search-bar input:focus {
+    outline-width: 0;
+}
+
 .suggestions {
     border: 1px solid;
     border-radius:5px;

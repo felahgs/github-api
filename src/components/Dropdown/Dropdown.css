@@ -1,9 +1,14 @@
 .dropdown-component {
     background-color: #fff;
     border-radius: 4px;
+    box-shadow: 10px 8px 5px -5px rgba(0,0,0,0.44);
     display: inline-block;
     margin-top: 8px;
     /* width: 50%; */
+}
+
+.dropdown-component :hover {
+  background-color:#defedb;
 }
 
 @media (min-width: 1024px) {
