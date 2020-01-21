@@ -3,7 +3,9 @@
     border-radius: 4px;
     box-shadow: 10px 8px 5px -5px rgba(0,0,0,0.44);
     display: inline-block;
+    max-height: 80%;
     margin-top: 8px;
+    overflow: auto;
     /* width: 50%; */
 }
 
